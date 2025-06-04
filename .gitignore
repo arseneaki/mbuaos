@@ -1,0 +1,7 @@
+output/
+build/
+*.img
+*.iso
+*.log
+*.tar.gz
+*.patch

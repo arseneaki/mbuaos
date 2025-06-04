@@ -1,0 +1,8 @@
+#!/bin/sh
+echo "[MbuaOS] Applying nftables rules..."
+nft add table inet filter
+nft add chain inet filter input { type filter hook input priority 0 \; policy drop \; }
+nft add rule inet filter input ct state established,related accept
+nft add rule inet filter input iif "lo" accept
+nft add rule inet filter input tcp dport 22 accept
+nft add rule inet filter input icmp accept
